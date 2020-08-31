@@ -1,0 +1,1 @@
+what's proper way to export changes I made to Solution?

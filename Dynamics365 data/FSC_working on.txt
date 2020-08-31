@@ -1,0 +1,212 @@
+Organization decision tree
+{
+ "F1":[{"q":1, "a":1}, {"q":2, "a":1}, {"q":3, "a":2}],
+ "F2":[{"q":4, "a":1}, {"q":5, "a":1}, {"q":6, "a":2, "case":2}],
+ "F3_1":[{"q":1, "a":1}],
+ "F3_2":[{"q":1, "a":1}],
+ "F3_3":[{"q":11, "a":1}],
+ "F3_4":[{"q":14, "a":1}],
+ "F3_5":[{"q":15, "a":1}],
+ "AddQ1":[{"q":1, "a":1}],
+ "AddQ2":[{"q":1, "a":1}],
+ "AddQ3":[{"q":1, "a":1}],
+ "AddQ4":[{"q":1, "a":1}],
+ "AddQ5":[{"q":1, "a":1}],
+}
+
+{
+ "Filter Level I": [ [{"q":1, "a":0},{"q":2, "a":0}] ],
+ "Filter Level II": [ [{"q":4, "a":0}, {"q":5, "a":1}, {"q":8, "a":1, "case":1}] ],
+ "Filter Level III": [ [{"q":11, "a":0}, {"q":12, "a":1}, {"q":13, "a":0}], [{"q":14, "a":0}, {"q":15, "a":1}, {"q":16, "a":0}, {"q":17, "a":0}], [{"q":19, "a":0}, {"q":20, "a":0}, {"q":21, "a":0}], [{"q":22, "a":1}], [{"q":23, "a":0}] ],
+ "Additional Questions":[ [{"q":24, "a":0}, {"q":25, "a":1}], [{"q":26, "a":0}, {"q":27, "a":1}], [{"q":28, "a":0}, {"q":29, "a":1}], [{"q":30, "a":0}, {"q":29, "a":1}], [{"q":31, "a":0}, {"q":32, "a":1}]]
+}
+{"Filter Level I":[[{"q":1,"a":0},{"q":2,"a":0}]],"Filter Level II":[[{"q":4,"a":0},{"q":5,"a":1},{"q":8,"a":1,"case":1}]],"Filter Level III":[[{"q":11,"a":0},{"q":12,"a":1},{"q":13,"a":0}],[{"q":14,"a":0},{"q":15,"a":1},{"q":16,"a":0},{"q":17,"a":0}],[{"q":19,"a":0},{"q":20,"a":0},{"q":21,"a":0}],[{"q":22,"a":1}],[{"q":23,"a":0}]],"Additional Questions":[[{"q":24,"a":0},{"q":25,"a":1}],[{"q":26,"a":0},{"q":27,"a":1}],[{"q":28,"a":0},{"q":29,"a":1}],[{"q":30,"a":0},{"q":29,"a":1}],[{"q":31,"a":0},{"q":32,"a":1}]]}
+
+enhanced with questions and answers (and outcome)
+{
+ "Filter Level I": [ [{"q":1, "a":0},{"q":2, "a":0}] ],
+ "Filter Level II": [ [{"q":4, "a":0}, {"q":5, "a":1}, {"q":8, "a":1, "case":1}] ],
+ "Filter Level III": [ [{"q":11, "a":0}, {"q":12, "a":1}, {"q":13, "a":0}], [{"q":14, "a":0}, {"q":15, "a":1}, {"q":16, "a":0}, {"q":17, "a":0}], [{"q":19, "a":0}, {"q":20, "a":0}, {"q":21, "a":0}], [{"q":22, "a":1}], [{"q":23, "a":0}] ],
+ "Additional Questions":[ [{"q":24, "a":0}, {"q":25, "a":1}], [{"q":26, "a":0}, {"q":27, "a":1}], [{"q":28, "a":0}, {"q":29, "a":1}], [{"q":30, "a":0}, {"q":29, "a":1}], [{"q":31, "a":0}, {"q":32, "a":1}]]
+}
+
+=========================================
+Filter Level I
+Question No. I.1
+
+1
+Do you produce products or only trade them?
+[{"answers":["I only trade FSC products","I produce FSC products"],"outcome":[null,null]}]
+
+2
+Do you physically possess these products?
+[{"answers":["yes","no"],"outcome":[{"scenario":"Traders with physical possession","scenario_abbr":"TDwPP","scenario_code":3},{"scenario":"Traders without physical possession","scenario_abbr":"TD/PP","scenario_code":4}]}]
+
+3
+Are you a primary producer (meaning you use timber coming directly from the forest)?
+[{"answers":["yes","no"],"outcome":[{"scenario":"Primary Producer","scenario_abbr":"PP","scenario_code":1},{"scenario":"Secondary producer/processor","scenario_abbr":"SP","scenario_code":2}]}]
+
+=========================================
+Filter Level II
+Question No. II.1
+
+4
+Does / would your entire production use FSC materials (as opposite to only part of the production set for FSC and other part not)?
+[{"answers":["Yes, my entire production is/will focus on FSC material","No, only part of my production will focus on FSC material"],"outcome":[null,null]}]
+
+5
+Do you / would you only sell your products with one of the FSC claims that you have used as your input, or do you / would you calculate your output claims differently?
+[{"answers":["I only sell (would sell) products with one of the FSC claims that I have used as your input","I (would) either calculate a percentage claim that corresponds to the proportion of claim-contributing inputs, or chose a proportion of outputs to be sold with a credit claim corresponding to the quantity of claim-contributing inputs","I (would) apply all options"],"outcome":[{"scenario":"Transfer system (all material is FSC certified/no segregation)","scenario_abbr":"TR/S","scenario_code":5},null,null]},{"answers":["I only sell (would sell) products with one of the FSC claims that I have used as your input","I (would) either calculate a percentage claim that corresponds to the proportion of claim-contributing inputs, or chose a proportion of outputs to be sold with a credit claim corresponding to the quantity of claim-contributing inputs","I (would) apply all options"],"outcome":[null,null,null]}]
+
+6
+Is any of the following true for you? a. You sell (would sell) FSC 100% material? b. trade and processing of non-timber forest products (NTFPs), except for bamboo and NTFPs derived from trees (e.g. cork, resin, bark)
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+7
+You cannot calculate a percentage claim nor apply proportion system - you can only sell your products with one of the FSC claims that you have used as your input. Do you want to do it?
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Transfer system (all material is FSC certified/no segregation)","scenario_abbr":"TR/S","scenario_code":5},{"error":"No possibility for remote audit. Please contact certification body in your area."}]}]
+
+8
+Is any of the following true for you? d. print processes e. sale of products with FSC Small and Community Label and/or claim
+[{"answers":["Yes","No"],"outcome":[null,{"scenario":"Percentage/Credit system","scenario_abbr":"PC","scenario_code":7}]},{"answers":["Yes","No"],"outcome":[null,{"scenario":"All three control systems/combination of systems","scenario_abbr":"PCT","scenario_code":8}]}]
+
+9
+You cannot apply proportion system - you can only calculate a percentage claim that corresponds to the proportion of claim-contributing inputs. Do you want to do it?
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Percentage/Credit system","scenario_abbr":"PC","scenario_code":7},{"scenario":"Transfer system (all material is FSC certified/no segregation)","scenario_abbr":"TR/S","scenario_code":5}]},{"answers":["Yes","No"],"outcome":[{"scenario":"Percentage/Credit system","scenario_abbr":"PC","scenario_code":7},{"error":"No possibility for remote audit. Please contact certification body in your area."}]}]
+
+10
+Do you physically separate FSC materials from non-FSC materials (temporarily or permanently)?
+[{"answers":["yes","no"],"outcome":[{"scenario":"Transfer system (with segregation)","scenario_abbr":"TRwS","scenario_code":6},{"scenario":"Transfer system (all material is FSC certified/no segregation)","scenario_abbr":"TR/S","scenario_code":5}]}]
+
+=========================================
+Filter Level III
+Question No. III.1
+
+11
+Do you outsource any production activities related to your FSC materials?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+12
+Is any of the below true for you and your contractors?
+a) you outsource all or most of the manufacturing processes of a product; or
+b) your contractor(s) mixes different input materials (e.g. FSC 100%, controlled material, FSC controlled wood); or
+c) your contractor(s) applies the FSC label to the product; or
+d) your contractor(s) does not physically return the FSC certified product to you after outsourcing; or
+e) activities are outsourced to a contractor in another country with a Transparency International Corruption Perception Index (CPI) lower than 50.
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Outsourcing","scenario_abbr":"OUT","scenario_code":12},null]}]
+
+13
+Did you have any problems or non-conformities by your contractors regarding mixing different material groups or you otherwise think that there may be some problems?
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Outsourcing","scenario_abbr":"OUT","scenario_code":12},{"scenario":"Outsourcing","scenario_abbr":"OUT","scenario_code":12}]}]
+
+==
+Filter Level III
+Question No. III.2
+
+14
+Do you use any recycled materials?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+15
+Do you only use FSC recycled materials?
+[{"answers":["Yes","No"],"outcome":[{"condition":"All scenarios with traders","res":null},null]}]
+
+16
+Do you/ would you audit your suppliers for the compliance with FSC requirements yourself (as opposite to e.g. using FSC accredited CB)?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+17
+Can you present objective evidence for your classification of the material?
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Sourcing recycled material (pre and/or post consumer)","scenario_abbr":"REC","scenario_code":10},{"scenario":"Sourcing recycled material (pre and/or post consumer)","scenario_abbr":"REC","scenario_code":10}]}]
+
+18
+Do you use FSC accredited CB (but not the same one that is auditing you)
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Sourcing recycled material (pre and/or post consumer)","scenario_abbr":"REC","scenario_code":10},{"scenario":"Sourcing recycled material (pre and/or post consumer)","scenario_abbr":"REC","scenario_code":10}]}]
+
+==
+
+Filter Level III
+Question No. III.3
+
+19
+Do you / would you use any uncertified material that you would like to mix in with certified material (this can happen when you e.g. do not have enough FSC certified material and it means applying additional standards for Mix products FSC-STD-40-005)?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+20
+Can ensure that you do not mix your uncertified material with non-FSC materials?
+[{"answers":["Yes","No"],"outcome":[null,{"scenario":"Sourcing non-certified wood for use in FSC product groups (as CW)","scenario_abbr":"CW","scenario_code":9}]}]
+
+21
+Is your uncertified material coming from low risk regions as per FSC risk assessments?
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Sourcing non-certified wood for use in FSC product groups (as CW)","scenario_abbr":"CW","scenario_code":9},{"scenario":"Sourcing non-certified wood for use in FSC product groups (as CW)","scenario_abbr":"CW","scenario_code":9}]}]
+
+==
+
+Filter Level III
+Question No. III.4
+
+22
+Is all your operation located just in one physical location?
+[{"answers":["Yes","No"],"outcome":[null,{"scenario":"Group/multi-site certification","scenario_abbr":"MLT","scenario_code":11}]}]
+
+==
+
+Filter Level III
+Question No. III.5
+23
+Do you (would you) label your FSC products with FSC Label?
+[{"answers":["Yes","No"],"outcome":[{"scenario":"Labeling products","scenario_abbr":"LAB","scenario_code":13},null]}]
+
+
+=========================================
+
+ADDITIONAL
+
+24
+Is your main product chaco?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+25
+Are you sourcing from either Ukraine, Romania, or Africa?
+[{"answers":["Yes","No"],"outcome":[{"condition":"All scenarios with traders","res":"RISK","RISK":"HIGH"},{"condition":"All scenarios with traders","res":"RISK","RISK":"LOW"}]}]
+=
+
+26
+Is your main product plywood?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+27
+Are you sourcing from either south east Asia or China?
+[{"answers":["Yes","No"],"outcome":[{"condition":"All scenarios with traders","res":"RISK","RISK":"HIGH"},{"condition":"All scenarios with traders","res":"RISK","RISK":"LOW"}]}]
+=
+
+28
+Do you use Mango wood?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+29
+Do you source it from India?
+[{"answers":["Yes","No"],"outcome":[{"condition":"All scenarios with traders","res":"RISK","RISK":"HIGH"},{"condition":"All scenarios with traders","res":"RISK","RISK":"LOW"}]}]
+=
+
+30
+Do you use Dalbergia wood?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+=
+
+31
+Do you use Paulownia wood?
+[{"answers":["Yes","No"],"outcome":[null,null]}]
+
+32
+Do you source it from China?
+[{"answers":["Yes","No"],"outcome":[{"condition":"All scenarios with traders","res":"RISK","RISK":"HIGH"},{"condition":"All scenarios with traders","res":"RISK","RISK":"LOW"}]}]
+
+=
+Where are you located?
+o China (CN)
+o Germany (DE)
+o Brazil (BRA)
+==========
+
