@@ -6,7 +6,9 @@
 
 
 "Glitch_docusignEmbedSign" - app for Docusign Embedded Sign, on Glitch.me platform
+
 note - if "oauth token generator" isn't on page https://developers.docusign.com/oauth-token-generator, try https://developers-c.docusign.com/oauth-token-generator
+
 
 "Rocket.Chat" - communication widget "Rocket.chat" - it's open source!
 
